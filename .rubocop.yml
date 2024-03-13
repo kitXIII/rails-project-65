@@ -1,0 +1,30 @@
+---
+
+require:
+  - rubocop-minitest
+  - rubocop-rails
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'bin/**/*'
+    - 'db/schema.rb'
+    - 'db/migrate/**/*'
+    - 'config/environments/**/*'
+
+Style/Documentation:
+  Enabled: false
+
+Style/HashEachMethods:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Layout/LineLength:
+  Exclude:
+    - 'config/**/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/**/*'
