@@ -24,14 +24,4 @@ test:
 	yarn run build:css
 	NODE_ENV=test bin/rails test
 
-production-build:
-	bundle install
-	bundle exec rails db:migrate
-	bundle exec rails db:seed
-	bundle exec rails assets:precompile
-	bundle exec rails assets:clean
-
-production-start:
-	bundle exec rails server
-
 .PHONY: test
