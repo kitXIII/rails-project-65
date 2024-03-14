@@ -5,7 +5,7 @@
 
 Bulletin board site built with Ruby on Rails.
 
-The [demo](https://kitxiii-blog.onrender.com/) is published on [render](https://render.com/) service
+The [demo](https://kit-bulletin-board.onrender.com/) is published on [render](https://render.com/) service
 
 ### Development
 
