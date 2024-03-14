@@ -7,9 +7,12 @@ ruby '3.2.2'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.1.3', '>= 7.1.3.2'
 
+gem 'dotenv-rails'
 gem 'rubocop', require: false
 gem 'rubocop-minitest'
 gem 'rubocop-rails', require: false
+gem 'sentry-rails'
+gem 'sentry-ruby'
 gem 'slim_lint'
 gem 'slim-rails'
 
