@@ -1,12 +1,20 @@
 doctype html
-html
+html lang='ru'
   head
-    title
-      | Bulletin board
+    title = t('.title')
+    meta charset='utf-8'
     meta[name='viewport' content='width=device-width,initial-scale=1']
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
     = javascript_include_tag 'application', 'data-turbo-track': 'reload', type: 'module'
-  body
-    = yield
+    = favicon_link_tag asset_path('favicon.ico')
+
+  body.bg-body-tertiary.pt-5
+    header.navbar.navbar-expand-md.fixed-top.navbar-dark.bg-dark
+      = render 'layouts/shared/nav'
+
+    main.container.mt-2.py-3
+      = render 'layouts/shared/flash'
+
+      = yield

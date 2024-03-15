@@ -1,0 +1,7 @@
+ru:
+  layouts:
+    application:
+      title: Доска объявлений
+    shared:
+      nav:
+        title: Доска объявлений

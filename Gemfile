@@ -8,6 +8,7 @@ ruby '3.2.2'
 gem 'rails', '~> 7.1.3', '>= 7.1.3.2'
 
 gem 'dotenv-rails'
+gem 'rails-i18n'
 gem 'rubocop', require: false
 gem 'rubocop-minitest'
 gem 'rubocop-rails', require: false
