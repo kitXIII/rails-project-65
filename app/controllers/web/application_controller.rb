@@ -1,6 +1,4 @@
 # frozen_string_literal: true
 
-module Web
-  class ApplicationController < ActionController::Base
-  end
+class Web::ApplicationController < ApplicationController
 end
