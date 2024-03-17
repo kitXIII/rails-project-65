@@ -4,4 +4,10 @@
     span = t('.title')
   ul.nav.nav-pills
     li.nav-item
-      = render 'layouts/web/shared/auth_form'
+      - if signed_in?
+        = link_to t('.logout'), session_path, class: 'nav-link text-light', data: { turbo_method: :delete }
+      - else
+        = form_with url: auth_request_path(:github), data: { turbo: 'false' } do |f|
+          = f.button class: 'nav-link text-light' do
+            i.bi.bi-github.me-2
+            = t('.sign_in')

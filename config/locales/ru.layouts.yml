@@ -6,7 +6,6 @@ ru:
       shared:
         nav:
           title: Доска объявлений
-        auth_form:
           logout: Выйти
           sign_in: Войти
   web:
