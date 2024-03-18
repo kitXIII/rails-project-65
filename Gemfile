@@ -16,6 +16,7 @@ gem 'rubocop-minitest'
 gem 'rubocop-rails', require: false
 gem 'sentry-rails'
 gem 'sentry-ruby'
+gem 'simple_form'
 gem 'slim_lint'
 gem 'slim-rails'
 
