@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class Web::HomeControllerTest < ActionDispatch::IntegrationTest
+class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
   test 'should get index' do
     get root_url
 
