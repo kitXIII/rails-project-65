@@ -4,10 +4,10 @@ one:
   title: BulletinTitleOne
   description: BulletinDescriptionOne
   category: one
-  user: one
+  author: one
 
 two:
   title: BulletinTitleTwo
   description: BulletinDescriptionTwo
   category: two
-  user: two
+  author: two
