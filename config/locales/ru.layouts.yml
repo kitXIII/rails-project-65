@@ -5,9 +5,10 @@ ru:
         title: Доска объявлений
       shared:
         nav:
-          title: Доска объявлений
+          add_bulletin: Добавить
           logout: Выйти
           sign_in: Войти
+          title: Доска объявлений
   web:
     auth:
       success: Успешный вход
