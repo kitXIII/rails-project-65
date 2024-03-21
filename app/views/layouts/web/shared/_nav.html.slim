@@ -8,13 +8,14 @@
     span.navbar-toggler-icon
 
   .collapse.navbar-collapse.pt-2.pt-md-0 id='navbarCollapse'
-    ul.navbar-nav.me-auto
-      li.nav-item.px-2 = link_to t('.add_bulletin'), new_bulletin_path,
-        class: "nav-link #{'active' if current_page?(new_bulletin_path)}"
+    - if signed_in?
+      ul.navbar-nav
+        li.nav-item.px-2 = link_to t('.add_bulletin'), new_bulletin_path,
+          class: "nav-link #{'active' if current_page?(new_bulletin_path)}"
 
-    hr.text-white-50.my-1.d-md-none
+      hr.text-white-50.my-1.d-md-none
 
-    ul.navbar-nav
+    ul.navbar-nav.ms-auto
       li.nav-item.px-2
         - if signed_in?
           = link_to t('.logout'), session_path, class: 'nav-link text-light', data: { turbo_method: :delete }

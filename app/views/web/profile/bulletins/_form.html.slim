@@ -1,0 +1,16 @@
+  = simple_form_for @bulletin do |f|
+    .form-inputs
+      = f.input :title
+      = f.input :description
+      = f.association :category, required: true
+
+      - if @bulletin.image_attachment
+        = image_tag @bulletin.image.variant(resize_to_limit: [200, 200]), class: 'img-thumbnail'
+
+      = f.input :image, as: :file,
+                        required: true,
+                        label_html: { class: 'form-label' },
+                        input_html: { class: 'form-control' }
+
+    .form-actions.mb-3.pt-2
+      = f.button :submit, class: 'btn-primary'

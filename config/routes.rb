@@ -9,6 +9,10 @@ Rails.application.routes.draw do
 
     root 'bulletins#index'
 
-    resources :bulletins, except: %i[destroy index]
+    scope module: :profile do
+      resources :bulletins, only: %i[new create]
+    end
+
+    resources :bulletins, only: %i[index show]
   end
 end

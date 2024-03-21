@@ -1,0 +1,11 @@
+ru:
+  web:
+    bulletins:
+      index:
+        title: Объявления
+    profile:
+      bulletins:
+        new:
+          title: Добавить объявление
+        create:
+          success: Объявление успешно добавлено.

@@ -23,7 +23,7 @@ class Web::AuthController < Web::ApplicationController
 
   def build_user_notification(user)
     if user.persisted?
-      { notice: t('.success') }
+      { notice: t('flashes.successful_login') }
     else
       { alert: user.errors.full_messages.to_sentence }
     end

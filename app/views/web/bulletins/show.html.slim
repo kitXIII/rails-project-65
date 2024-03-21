@@ -1,0 +1,17 @@
+.my-3.p-3.bg-body.rounded.shadow-sm
+  h1.fs-4
+    = @bulletin.title
+  hr
+  .row
+    .col-12.col-lg-8
+      .d-flex.flex-column
+        .card.mb-2
+          - if @bulletin.image_attachment
+            = image_tag @bulletin.image, alt: @bulletin.title, class: 'card-image w-100'
+        p
+          = simple_format(@bulletin.description)
+    .col-12.col-lg-4.d-flex.flex-column.align-items-end
+      span.fs-4
+        = @bulletin.author.name
+      span.text-muted
+        = distance_of_time_in_words_to_now(@bulletin.created_at)

@@ -9,6 +9,3 @@ ru:
           logout: Выйти
           sign_in: Войти
           title: Доска объявлений
-  web:
-    auth:
-      success: Успешный вход

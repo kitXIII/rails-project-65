@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 
 class Web::BulletinsController < Web::ApplicationController
-  def index; end
+  def index
+    @bulletins = Bulletin.order(created_at: :desc)
+  end
 
-  def new; end
-
-  def edit; end
-  def create; end
-
-  def update; end
+  def show
+    @bulletin = Bulletin.find params[:id]
+  end
 end
