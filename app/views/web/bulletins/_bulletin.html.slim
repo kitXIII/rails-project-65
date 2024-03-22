@@ -1,12 +1,12 @@
 .col-sm-12.col-md-6.col-lg-4.col-xl-3.col-xl-2
-  = link_to bulletin_path(bulletin), class: 'text-decoration-none' do
-    .card.shadow-sm
+  = link_to bulletin_path(bulletin), class: 'text-decoration-none d-block h-100' do
+    .card.shadow-sm.h-100
       - if bulletin.image_attachment
         = image_tag bulletin.image.variant(resize_to_limit: [300, 300]),
           height: 200,
           alt: bulletin.title,
           class: 'card-img-top x-object-fit-cover'
-      .card-body
+      .card-body.d-flex.flex-column.justify-content-end
         h5.card-title
           = bulletin.title
         p.card-text.text-muted.small
