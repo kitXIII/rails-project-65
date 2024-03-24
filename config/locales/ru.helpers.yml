@@ -3,3 +3,4 @@ ru:
     submit:
       bulletin:
         create: Добавить объявление
+        update: Сохранить изменения

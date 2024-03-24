@@ -15,7 +15,7 @@ module AuthConcern
   end
 
   def authenticate_user!
-    redirect_to root_path, alert: t('flashes.not_authorized') unless signed_in?
+    redirect_to root_path, alert: t('flashes.not_logged_in') unless signed_in?
   end
 
   def current_user

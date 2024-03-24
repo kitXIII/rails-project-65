@@ -4,5 +4,12 @@
 Sentry.init do |config|
   config.breadcrumbs_logger = %i[active_support_logger http_logger]
 
+  config.excluded_exceptions += [
+    'ActionController::RoutingError',
+    'ActionController::UnknownFormat',
+    'ActiveRecord::RecordNotFound',
+    'Pundit::NotAuthorizedError'
+  ]
+
   config.traces_sample_rate = 1.0
 end
