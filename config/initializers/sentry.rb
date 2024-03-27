@@ -4,6 +4,8 @@
 Sentry.init do |config|
   config.breadcrumbs_logger = %i[active_support_logger http_logger]
 
+  config.enabled_environments = %i[production]
+
   config.excluded_exceptions += [
     'ActionController::RoutingError',
     'ActionController::UnknownFormat',
