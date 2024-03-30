@@ -11,14 +11,24 @@ module AuthConcern
   end
 
   def signed_in?
-    session[:user_id].present? && current_user.present?
+    current_user.present?
   end
 
   def authenticate_user!
-    redirect_to root_path, alert: t('flashes.not_logged_in') unless signed_in?
+    return if signed_in?
+
+    redirect_to root_path, alert: t('flashes.not_logged_in')
+  end
+
+  def authenticate_admin!
+    return if signed_in? && current_user.admin
+
+    redirect_to root_path, alert: t('flashes.not_authorized')
   end
 
   def current_user
+    return if session[:user_id].blank?
+
     @current_user ||= User.find_by(id: session[:user_id])
   end
 end

@@ -9,3 +9,10 @@ ru:
           logout: Выйти
           sign_in: Войти
           title: Доска объявлений
+      admin:
+        application:
+          title: Админ-панель
+        shared:
+          admin_nav:
+            root: Админ-панель
+            categories: Категории

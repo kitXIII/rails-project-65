@@ -1,0 +1,9 @@
+ru:
+  web:
+    admin:
+      categories:
+        index:
+          title: Категории
+          add: Добавить
+          edit: Редактировать
+          destroy: Удалить

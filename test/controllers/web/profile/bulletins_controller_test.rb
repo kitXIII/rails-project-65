@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
+class Web::Profile::BulletinsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @bulletin = bulletins(:one)
     @author = users(:one)
