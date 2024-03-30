@@ -4,3 +4,6 @@ ru:
       bulletin:
         create: Добавить объявление
         update: Сохранить изменения
+      category:
+        create: Добавить категорию
+        update: Сохранить изменения

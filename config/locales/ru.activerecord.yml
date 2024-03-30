@@ -6,6 +6,8 @@ ru:
         description: Подробное описание
         title: Заголовок
         image: Фотография
+      category:
+        name: Наименование
     errors:
       models:
     models:

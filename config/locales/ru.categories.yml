@@ -2,8 +2,19 @@ ru:
   web:
     admin:
       categories:
+        form:
+          back: Назад
         index:
           title: Категории
-          add: Добавить
+          add: Добавить категорию
           edit: Редактировать
           destroy: Удалить
+          destroy_confirmation: Вы действительно хотите удалить категорию?
+        new:
+          title: Добавить категорию
+        create:
+          success: Категория успешно добавлена.
+        edit:
+          title: Редактирование категории
+        update:
+          success: Категория успешно обновлена.

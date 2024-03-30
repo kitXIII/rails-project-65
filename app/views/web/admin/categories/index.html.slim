@@ -1,3 +1,6 @@
+.mb-3
+  = link_to t('.add'), new_admin_category_path
+
 table.table.table-striped.table-hover
   thead
     tr
@@ -13,5 +16,5 @@ table.table.table-striped.table-hover
         td
           = link_to t('.edit'), edit_admin_category_path(category), class: 'me-4'
           = link_to t('.destroy'), admin_category_path(category),
-            data: { turbo_method: :delete, turbo_confirm: t('destroy_confirmation') },
+            data: { turbo_method: :delete, turbo_confirm: t('.destroy_confirmation') },
             class: 'link-danger'

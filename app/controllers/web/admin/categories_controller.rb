@@ -2,23 +2,19 @@
 
 class Web::Admin::CategoriesController < Web::Admin::ApplicationController
   def index
-    @categories = Category.order(updated_at: :desc)
-    authorize Category
+    @categories = Category.order(name: :asc)
   end
 
   def new
     @category = Category.new
-    authorize @category
   end
 
   def edit
     @category = Category.find params[:id]
-    authorize @category
   end
 
   def create
     @category = Category.create(category_params)
-    authorize @category
 
     if @category.save
       redirect_to admin_categories_path, notice: t('.success')
@@ -29,10 +25,9 @@ class Web::Admin::CategoriesController < Web::Admin::ApplicationController
 
   def update
     @category = Category.find params[:id]
-    authorize @category
 
     if @category.update(category_params)
-      edirect_to admin_categories_path, notice: t('.success')
+      redirect_to admin_categories_path, notice: t('.success')
     else
       render :edit, status: :unprocessable_entity
     end
@@ -40,7 +35,6 @@ class Web::Admin::CategoriesController < Web::Admin::ApplicationController
 
   def destroy
     @category = Category.find params[:id]
-    authorize @category
 
     notification =
       if @category.destroy!

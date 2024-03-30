@@ -11,7 +11,7 @@ module AuthConcern
   end
 
   def signed_in?
-    current_user.present?
+    session[:user_id].present? && current_user.present?
   end
 
   def authenticate_user!
@@ -27,8 +27,6 @@ module AuthConcern
   end
 
   def current_user
-    return if session[:user_id].blank?
-
     @current_user ||= User.find_by(id: session[:user_id])
   end
 end

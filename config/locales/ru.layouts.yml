@@ -6,13 +6,13 @@ ru:
       shared:
         nav:
           add_bulletin: Добавить
+          admin: Админ-панель
           logout: Выйти
           sign_in: Войти
           title: Доска объявлений
       admin:
         application:
           title: Админ-панель
-        shared:
-          admin_nav:
-            root: Админ-панель
-            categories: Категории
+        admin_nav:
+          root: Админ-панель
+          categories: Категории
