@@ -8,6 +8,11 @@ class Web::AuthController < Web::ApplicationController
     redirect_to root_path, build_user_notification(user)
   end
 
+  def logout
+    sign_out
+    redirect_to root_path
+  end
+
   private
 
   def auth

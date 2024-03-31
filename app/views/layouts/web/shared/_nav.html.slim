@@ -21,8 +21,8 @@
     ul.navbar-nav
 
         - if signed_in?
-          li.nav-item = link_to t('.logout'), session_path,
-            class: 'nav-link text-light', data: { turbo_method: :delete }
+          = form_with url: auth_logout_path, method: 'delete' do |f|
+            = f.button t('.logout'), class: 'nav-link text-light w-100 d-flex'
         - else
           li.nav-item
             = form_with url: auth_request_path(:github), data: { turbo: 'false' } do |f|

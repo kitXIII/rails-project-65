@@ -31,4 +31,14 @@ class Web::AuthControllerTest < ActionDispatch::IntegrationTest
 
     assert_predicate self, :signed_in?
   end
+
+  test 'logout' do
+    sign_in(users(:one))
+
+    delete auth_logout_url
+
+    assert_response :redirect
+
+    assert_not signed_in?
+  end
 end
