@@ -3,7 +3,6 @@
 class Web::Profile::BulletinsController < Web::Profile::ApplicationController
   def new
     @bulletin = Bulletin.new
-    authorize @bulletin
   end
 
   def edit
@@ -13,7 +12,6 @@ class Web::Profile::BulletinsController < Web::Profile::ApplicationController
 
   def create
     @bulletin = current_user.bulletins.build(bulletin_params)
-    authorize @bulletin
 
     if @bulletin.save
       redirect_to @bulletin, notice: t('.success')

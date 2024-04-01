@@ -11,3 +11,10 @@ two:
   description: BulletinDescriptionTwo
   category: two
   author: two
+
+published:
+  title: PublishedBulletinTitle
+  description: PublishedBulletinDescription
+  category: one
+  author: one
+  state: published

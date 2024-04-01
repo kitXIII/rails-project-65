@@ -4,7 +4,7 @@ require 'test_helper'
 
 class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @bulletin = bulletins(:one)
+    @bulletin = bulletins(:published)
   end
 
   test 'should get index' do

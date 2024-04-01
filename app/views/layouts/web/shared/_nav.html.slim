@@ -9,7 +9,7 @@
 
   .collapse.navbar-collapse.pt-2.pt-md-0.justify-content-md-between id='navbarCollapse'
     ul.navbar-nav.flex-grow-1.me-md-3
-      - if policy(Bulletin).create?
+      - if policy(Bulletin).new?
         li.nav-item = link_to t('.add_bulletin'), new_bulletin_path,
           class: "nav-link #{'active' if current_page?(new_bulletin_path)}"
 
