@@ -13,6 +13,7 @@ ru:
       admin:
         application:
           title: Админ-панель
-        admin_nav:
+        nav:
           root: Админ-панель
+          users: Пользователи
           categories: Категории

@@ -2,8 +2,6 @@ ru:
   web:
     admin:
       categories:
-        form:
-          back: Назад
         index:
           title: Категории
           add: Добавить категорию

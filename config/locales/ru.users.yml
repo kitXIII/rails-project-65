@@ -1,0 +1,15 @@
+ru:
+  web:
+    admin:
+      users:
+        users:
+          name: Имя
+          email: email
+          edit: Редактировать
+        index:
+          admins: Администраторы
+          users: Пользователи
+        edit:
+          title: Пользователь
+        update:
+          success: Данные пользователя успешно обновлены.

@@ -1,6 +1,9 @@
-ul.nav.nav-underline.mb-3
+ul.nav.nav-underline.mb-3.flex-column.gap-0.flex-md-row.gap-md-3
   li.nav-item = link_to t('.root'), admin_root_path,
     class: "nav-link #{'active' if current_page?(admin_root_path)}"
+
+  li.nav-item = link_to t('.users'), admin_users_path,
+    class: "nav-link #{'active' if current_page?(admin_users_path)}"
 
   li.nav-item = link_to t('.categories'), admin_categories_path,
     class: "nav-link #{'active' if current_page?(admin_categories_path)}"

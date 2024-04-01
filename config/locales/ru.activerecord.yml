@@ -8,6 +8,8 @@ ru:
         image: Фотография
       category:
         name: Наименование
+      user:
+        admin: администратор
     errors:
       models:
     models:

@@ -1,0 +1,10 @@
+.row
+  .col-12.col-lg-6.mb-3
+    h1.fs-5.mb-3 = t('.admins')
+    .overflow-x-scroll
+      = render 'web/admin/users/users', users: @admins
+
+  .col-12.col-lg-6.mb-3
+    h1.fs-5.mb-3 = t('.users')
+    .overflow-x-scroll
+      = render 'web/admin/users/users', users: @users

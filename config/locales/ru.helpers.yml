@@ -7,3 +7,5 @@ ru:
       category:
         create: Добавить категорию
         update: Сохранить изменения
+      user:
+        update: Сохранить изменения
