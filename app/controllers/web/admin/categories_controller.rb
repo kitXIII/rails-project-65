@@ -37,10 +37,10 @@ class Web::Admin::CategoriesController < Web::Admin::ApplicationController
     @category = Category.find params[:id]
 
     notification =
-      if @category.destroy!
+      if @category.destroy
         {}
       else
-        { alert: like.errors.full_messages.to_sentence }
+        { alert: @category.errors.full_messages.to_sentence }
       end
 
     redirect_to admin_categories_path, notification
