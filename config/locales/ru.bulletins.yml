@@ -10,16 +10,16 @@ ru:
     bulletins:
       index:
         title: Объявления
+      new:
+        title: Добавить объявление
+      create:
+        success: Объявление успешно добавлено.
+      edit:
+        title: Редактирование объявления
+      update:
+        success: Объявление успешно обновлено.
     profile:
-      bulletins:
+      home:
         index:
           add: Добавить объявление
           title: Мои объявления
-        new:
-          title: Добавить объявление
-        create:
-          success: Объявление успешно добавлено.
-        edit:
-          title: Редактирование объявления
-        update:
-          success: Объявление успешно обновлено.

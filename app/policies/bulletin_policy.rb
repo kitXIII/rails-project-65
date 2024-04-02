@@ -26,6 +26,6 @@ class BulletinPolicy < ApplicationPolicy
   end
 
   def update?
-    record.author == user
+    user && record.author == user
   end
 end
