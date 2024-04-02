@@ -9,7 +9,7 @@ class Web::Admin::BulletinsControllerTest < ActionDispatch::IntegrationTest
     @bulletin = bulletins_with_file(:under_moderation)
   end
 
-  test 'should not get index when user not authorized' do
+  test 'should not get index when user is not logged in' do
     get admin_bulletins_url
 
     assert_redirected_to root_url

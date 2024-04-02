@@ -8,7 +8,7 @@ class Web::Admin::HomeControllerTest < ActionDispatch::IntegrationTest
     @admin = users(:admin)
   end
 
-  test 'should not get index when user not authorized' do
+  test 'should not get index when user is not logged in' do
     get admin_root_url
 
     assert_redirected_to root_url

@@ -13,7 +13,7 @@ class Web::Admin::UsersControllerTest < ActionDispatch::IntegrationTest
     }
   end
 
-  test 'should not get index when user not authorized' do
+  test 'should not get index when user is not logged in' do
     get admin_users_url
 
     assert_redirected_to root_url
@@ -33,7 +33,7 @@ class Web::Admin::UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'should not get show when user not authorized' do
+  test 'should not get show when user is not logged in' do
     get admin_user_url(@another_user)
 
     assert_redirected_to root_url
@@ -53,7 +53,7 @@ class Web::Admin::UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'should not get edit when user not authorized' do
+  test 'should not get edit when user is not logged in' do
     get edit_admin_user_url(@another_user)
 
     assert_redirected_to root_url
@@ -73,7 +73,7 @@ class Web::Admin::UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'should not update when user not authorized' do
+  test 'should not update when user is not logged in' do
     patch admin_user_url(@another_user), params: { user: @attrs }
 
     @another_user.reload
