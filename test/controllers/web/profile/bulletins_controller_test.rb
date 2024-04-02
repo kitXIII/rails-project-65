@@ -17,6 +17,19 @@ class Web::Profile::BulletinsControllerTest < ActionDispatch::IntegrationTest
     }
   end
 
+  test 'should not get profile index, when user not authorized' do
+    get profile_url
+
+    assert_redirected_to root_url
+  end
+
+  test 'should get profile index, when user authorized' do
+    sign_in(@user)
+    get profile_url
+
+    assert_response :success
+  end
+
   test 'should not get new, when user not authorized' do
     get new_bulletin_url
 

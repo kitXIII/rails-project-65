@@ -2,7 +2,7 @@
 
 class Web::BulletinsController < Web::ApplicationController
   def index
-    @bulletins = Bulletin.published.order(created_at: :desc)
+    @bulletins = Bulletin.published.order(updated_at: :desc)
   end
 
   def show

@@ -9,13 +9,16 @@
 
   .collapse.navbar-collapse.pt-2.pt-md-0.justify-content-md-between id='navbarCollapse'
     ul.navbar-nav.flex-grow-1.me-md-3
-      - if policy(Bulletin).new?
+      - if signed_in?
+        li.nav-item = link_to t('.my_bulletins'), profile_path,
+          class: "nav-link #{'active' if current_page?(profile_path)}"
+
         li.nav-item = link_to t('.add_bulletin'), new_bulletin_path,
           class: "nav-link #{'active' if current_page?(new_bulletin_path)}"
 
-      - if signed_in? && current_user.admin?
-        li.nav-item.ms-md-auto = link_to t('.admin'), admin_root_path,
-          class: "nav-link #{'active' if current_page?(admin_root_path)}"
+        - if current_user.admin?
+          li.nav-item.ms-md-auto = link_to t('.admin'), admin_root_path,
+            class: "nav-link #{'active' if current_page?(admin_root_path)}"
 
       hr.text-white-50.my-1.d-md-none
 

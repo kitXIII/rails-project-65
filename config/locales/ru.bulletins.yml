@@ -1,10 +1,20 @@
 ru:
   web:
+    admin:
+      bulletins:
+        index:
+          title: Все объявления
+      home:
+        index:
+          title: Объявления на модерации
     bulletins:
       index:
         title: Объявления
     profile:
       bulletins:
+        index:
+          add: Добавить объявление
+          title: Мои объявления
         new:
           title: Добавить объявление
         create:

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     root 'bulletins#index'
 
     scope module: :profile do
+      get 'profile', to: 'bulletins#index'
       resources :bulletins, only: %i[new create edit update]
     end
 
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
       root 'home#index'
       resources :categories, except: %i[show]
       resources :users, only: %i[index show edit update]
+      resources :bulletins, only: :index
     end
   end
 end

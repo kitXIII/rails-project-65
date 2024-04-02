@@ -3,9 +3,17 @@ ru:
     attributes:
       bulletin:
         category: Категория
+        created_at: Добавлено
+        updated_at: Обновлено
         description: Подробное описание
-        title: Заголовок
         image: Фотография
+        state: Статус
+        state/archived: В архиве
+        state/draft: Черновик
+        state/published: Опубликовано
+        state/rejected: Отклонено
+        state/under_moderation: На модерации
+        title: Заголовок
       category:
         name: Наименование
       user:

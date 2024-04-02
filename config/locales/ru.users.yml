@@ -5,7 +5,6 @@ ru:
         users:
           name: Имя
           email: email
-          edit: Редактировать
         index:
           admins: Администраторы
           users: Пользователи
