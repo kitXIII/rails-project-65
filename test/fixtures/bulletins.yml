@@ -12,6 +12,13 @@ two:
   category: two
   author: two
 
+draft:
+  title: BulletinTitle
+  description: DraftBulletinDescription
+  category: one
+  author: one
+  state: draft
+
 published:
   title: PublishedBulletinTitle
   description: PublishedBulletinDescription

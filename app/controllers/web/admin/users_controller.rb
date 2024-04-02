@@ -6,6 +6,10 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
     @admins = policy_scope(User).where(admin: true).order(name: :asc)
   end
 
+  def show
+    @user = policy_scope(User).find(params[:id])
+  end
+
   def edit
     @user = authorize User.find(params[:id])
   end

@@ -33,6 +33,26 @@ class Web::Admin::UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test 'should not get show when user not authorized' do
+    get admin_user_url(@another_user)
+
+    assert_redirected_to root_url
+  end
+
+  test 'should not get show when user is not admin' do
+    sign_in(@user)
+    get admin_user_url(@another_user)
+
+    assert_redirected_to root_url
+  end
+
+  test 'should get show when user is admin' do
+    sign_in(@admin)
+    get admin_user_url(@another_user)
+
+    assert_response :success
+  end
+
   test 'should not get edit when user not authorized' do
     get edit_admin_user_url(@another_user)
 

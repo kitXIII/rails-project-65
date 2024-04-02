@@ -1,0 +1,14 @@
+h1.fs-5.mb-3
+  = t('.title')
+
+.mb-2
+  strong = @user.name
+
+.mb-3
+  = mail_to @user.email
+
+- if @user.admin?
+  .mb-3
+    span.text-success = User.human_attribute_name(:admin)
+
+= link_to t('back'), :back, class: 'btn btn-outline-secondary me-2'

@@ -8,6 +8,8 @@ ru:
         index:
           admins: Администраторы
           users: Пользователи
+        show:
+          title: Пользователь
         edit:
           title: Пользователь
         update:
