@@ -15,6 +15,12 @@ module ActiveSupport
     fixtures :all
 
     # Add more helper methods to be used by all tests here...
+    def bulletins_with_file(name)
+      bulletin = bulletins(name)
+      bulletin.image.attach(fixture_file_upload('one.jpg', 'image/jpg'))
+      bulletin.save
+      bulletin
+    end
   end
 end
 

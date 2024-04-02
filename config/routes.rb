@@ -9,15 +9,28 @@ Rails.application.routes.draw do
     root 'bulletins#index'
     resources :bulletins, except: %i[destroy]
 
-    namespace :profile do
-      root 'home#index'
+    scope module: :profile do
+      get 'profile', to: 'home#index'
+
+      resources :bulletins, only: [] do
+        member do
+          patch :to_moderate
+          patch :archive
+        end
+      end
     end
 
     namespace :admin do
       root 'home#index'
       resources :categories, except: %i[show]
       resources :users, only: %i[index show edit update]
-      resources :bulletins, only: :index
+      resources :bulletins, only: %i[index] do
+        member do
+          patch :publish
+          patch :reject
+          patch :archive
+        end
+      end
     end
   end
 end

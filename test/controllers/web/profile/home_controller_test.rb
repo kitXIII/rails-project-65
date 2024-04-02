@@ -4,18 +4,18 @@ require 'test_helper'
 
 class Web::Profile::HomeControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @user = users(:two)
+    @user = users(:one)
   end
 
-  test 'should not get profile index, when user not authorized' do
-    get profile_root_url
+  test 'should not get profile index, when user is not logged in' do
+    get profile_url
 
     assert_redirected_to root_url
   end
 
-  test 'should get profile index, when user authorized' do
+  test 'should get profile index, when user is logged in' do
     sign_in(@user)
-    get profile_root_url
+    get profile_url
 
     assert_response :success
   end

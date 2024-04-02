@@ -15,7 +15,7 @@ class Bulletin < ApplicationRecord
   validates :title, presence: true, length: { minimum: 5, maximum: 50 }
   validates :description, presence: true, length: { minimum: 20, maximum: 1000 }
 
-  aasm column: 'state', whiny_transitions: false do
+  aasm column: :state, whiny_transitions: false do
     state :draft, initial: true
     state :archived, :published, :rejected, :under_moderation
 

@@ -18,3 +18,24 @@ published:
   category: one
   author: one
   state: published
+
+under_moderation:
+  title: BulletinTitle
+  description: UnderModerationBulletinDescription
+  category: one
+  author: one
+  state: under_moderation
+
+rejected:
+  title: BulletinTitle
+  description: RejectedBulletinDescription
+  category: one
+  author: one
+  state: rejected
+
+archived:
+  title: BulletinDescription
+  description: ArchivedBulletinDescription
+  category: one
+  author: one
+  state: archived
