@@ -19,7 +19,8 @@
         - @bulletins.each do |bulletin|
           tr
             td = link_to bulletin.title, bulletin_path(bulletin), target: '_blank', rel: 'noopener'
-            td = bulletin.aasm.human_state
+            td
+              span(class = state_badge_classes(bulletin.state)) = bulletin.aasm.human_state
             td = distance_of_time_in_words_to_now(bulletin.created_at)
             td
               .d-flex.flex-nowrap.gap-2
