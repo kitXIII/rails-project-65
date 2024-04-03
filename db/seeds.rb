@@ -9,7 +9,7 @@ if User.count < MIN_USERS_COUNT
     User.create(
       name: Faker::FunnyName.name,
       email: Faker::Internet.unique.email,
-      admin: Faker::Boolean.boolean(true_ratio: 0.2)
+      admin: Faker::Boolean.boolean(true_ratio: 0.2) # rubocop:disable Rails/ThreeStateBooleanColumn
     )
   end
 end
