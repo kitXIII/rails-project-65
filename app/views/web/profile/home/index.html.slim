@@ -57,3 +57,7 @@
                   = link_to t('.archive'), archive_bulletin_path(bulletin),
                     data: { turbo_method: :patch, turbo_confirm: t('.archive_confirmation') },
                     class: 'text-nowrap link-danger'
+
+  = paginate @bulletins, theme: 'bootstrap-5',
+                         pagination_class: 'pagination flex-wrap justify-content-end',
+                         nav_class: 'pt-3'

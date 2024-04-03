@@ -7,7 +7,7 @@ class Web::BulletinsController < Web::ApplicationController
     @q = Bulletin.published.ransack(params[:q])
     @q.sorts = 'updated_at desc'
 
-    @bulletins = @q.result
+    @bulletins = @q.result.page(page)
     @categories = Category.order(name: :asc)
   end
 

@@ -5,7 +5,7 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
     @q = User.ransack(params[:q])
     @q.sorts = 'name asc' if @q.sorts.empty?
 
-    @users = @q.result
+    @users = @q.result.page(page)
   end
 
   def show

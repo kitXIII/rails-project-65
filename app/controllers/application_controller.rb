@@ -3,6 +3,7 @@
 class ApplicationController < ActionController::Base
   include AuthConcern
   include Pundit::Authorization
+  include PaginationConcern
 
   helper_method :current_user, :signed_in?
 

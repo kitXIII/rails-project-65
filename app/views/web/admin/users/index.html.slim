@@ -37,3 +37,7 @@ h1.fs-5.mb-3
           td
             - if policy(user).edit?
               = link_to t('edit'), edit_admin_user_path(user)
+
+= paginate @users, theme: 'bootstrap-5',
+                        pagination_class: 'pagination flex-wrap justify-content-end',
+                        nav_class: 'pt-3'

@@ -19,3 +19,7 @@
 
   .row.g-3.g-lg-4.justify-content-stretch
     = render @bulletins
+
+  = paginate @bulletins, theme: 'bootstrap-5',
+                         pagination_class: 'pagination flex-wrap justify-content-end',
+                         nav_class: 'pt-3'
