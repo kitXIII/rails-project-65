@@ -3,11 +3,17 @@ h1.fs-5.mb-3
 
 = search_form_for @q, url: admin_root_path do |f|
   .row
-    .col-12.col-md-8
+    .col-12.col-md-5.col-lg-6
       = f.input :title_or_author_name_or_author_email_cont,
         as: :string,
         label: false,
         hint: t('.search_by_title_or_author_name')
+    .col-12.col-md-3.col-lg-2
+      = f.input :category_id_eq,
+        hint: t('.search_by_category'),
+        as: :select,
+        collection: @categories,
+        label: false
     .col-12.col-md-4.d-flex.align-items-start.gap-2.gap-md-4.mb-3
       = f.button :submit, class: 'btn btn-primary flex-grow-1'
       = link_to t('reset'), admin_root_path, class: 'btn btn-outline-primary flex-grow-1'
@@ -18,9 +24,9 @@ h1.fs-5.mb-3
       tr
         th{ scope = 'col' } = sort_link @q, :title, Bulletin.human_attribute_name(:title),
                                         class: 'link-dark text-decoration-none'
-        th{ scope = 'col' } = sort_link @q, :author_name, Bulletin.human_attribute_name(:author),
+        th{ scope = 'col' } = sort_link @q, :category_name, Bulletin.human_attribute_name(:category),
                                         class: 'link-dark text-decoration-none'
-        th{ scope = 'col' } = sort_link @q, :created_at, Bulletin.human_attribute_name(:created_at),
+        th{ scope = 'col' } = sort_link @q, :author_name, Bulletin.human_attribute_name(:author),
                                         class: 'link-dark text-decoration-none'
         th{ scope = 'col' } = sort_link @q, :updated_at, Bulletin.human_attribute_name(:updated_at),
                                         class: 'link-dark text-decoration-none'
@@ -30,8 +36,8 @@ h1.fs-5.mb-3
       - @bulletins.each do |bulletin|
         tr
           td = link_to bulletin.title, bulletin_path(bulletin)
+          td = bulletin.category.name
           td = link_to bulletin.author.name, admin_user_path(bulletin.author)
-          td = distance_of_time_in_words_to_now(bulletin.created_at)
           td = distance_of_time_in_words_to_now(bulletin.updated_at)
           td
             .d-flex.flex-nowrap.gap-2
