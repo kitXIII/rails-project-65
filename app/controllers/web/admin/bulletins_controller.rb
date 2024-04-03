@@ -2,7 +2,10 @@
 
 class Web::Admin::BulletinsController < Web::Admin::ApplicationController
   def index
-    @bulletins = Bulletin.order(created_at: :desc)
+    @q = Bulletin.ransack(params[:q])
+    @q.sorts = 'created_at desc' if @q.sorts.empty?
+
+    @bulletins = @q.result.includes(:author)
   end
 
   def publish

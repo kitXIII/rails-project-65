@@ -16,10 +16,14 @@ h1.fs-5.mb-3
   table.table.table-striped.table-hover
     thead
       tr
-        th{ scope = 'col' } = Bulletin.human_attribute_name(:title)
-        th{ scope = 'col' } = Bulletin.human_attribute_name(:author)
-        th{ scope = 'col' } = Bulletin.human_attribute_name(:created_at)
-        th{ scope = 'col' } = Bulletin.human_attribute_name(:updated_at)
+        th{ scope = 'col' } = sort_link @q, :title, Bulletin.human_attribute_name(:title),
+                                        class: 'link-dark text-decoration-none'
+        th{ scope = 'col' } = sort_link @q, :author_name, Bulletin.human_attribute_name(:author),
+                                        class: 'link-dark text-decoration-none'
+        th{ scope = 'col' } = sort_link @q, :created_at, Bulletin.human_attribute_name(:created_at),
+                                        class: 'link-dark text-decoration-none'
+        th{ scope = 'col' } = sort_link @q, :updated_at, Bulletin.human_attribute_name(:updated_at),
+                                        class: 'link-dark text-decoration-none'
         th
 
     tbody
