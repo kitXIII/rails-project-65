@@ -10,6 +10,7 @@ gem 'rails', '~> 7.1.3', '>= 7.1.3.2'
 gem 'aasm'
 gem 'active_storage_validations'
 gem 'aws-sdk-s3'
+gem 'faker'
 gem 'image_processing'
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
@@ -80,7 +81,6 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'faker'
   gem 'minitest-power_assert'
   gem 'selenium-webdriver'
 end
