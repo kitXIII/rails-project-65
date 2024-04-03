@@ -19,6 +19,8 @@ ru:
         name: Наименование
         bulletins: объявления
       user:
+        email: email
+        name: Имя
         admin: администратор
     errors:
       models:

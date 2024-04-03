@@ -8,11 +8,11 @@
 
   = search_form_for @q, url: profile_path do |f|
     .row
-      .col-12.col-md-4
+      .col-12.col-md-5.col-lg-6
         = f.input :title_cont,
           label: false,
           hint: t('.search_by_title')
-      .col-12.col-md-4
+      .col-12.col-md-3.col-lg-2
         = f.input :state_eq,
           as: :select,
           collection: Bulletin.aasm.states,
@@ -22,7 +22,7 @@
           label: false
       .col-12.col-md-4.d-flex.align-items-start.gap-2.gap-md-4.mb-3
         = f.button :submit, class: 'btn btn-primary flex-grow-1'
-        = link_to t('.reset'), profile_path, class: 'btn btn-outline-primary flex-grow-1'
+        = link_to t('reset'), profile_path, class: 'btn btn-outline-primary flex-grow-1'
 
   .overflow-x-scroll
     table.table.table-striped.table-hover

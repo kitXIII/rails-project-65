@@ -23,12 +23,10 @@ ru:
           publish_confirmation: Объявление будет опубликовано. Продолжить?
           reject: Вернуть
           reject_confirmation: Объявление будет возвращено. Продолжить?
-          reset: Сбросить
           search_by_title_or_author_name: Поиск по названию объявления или автору
           title: Объявления на модерации
     bulletins:
       index:
-        reset: Сбросить
         search_by_title: Поиск по названию объявления
         select_category: Укажите категорию
         title: Объявления
@@ -48,7 +46,6 @@ ru:
           archive_confirmation: После перемещения обхъявления в архив, отменить операцию будет невозможно. Вы уверены?
           title: Мои объявления
           to_moderate: На модерацию
-          reset: Сбросить
           search_by_title: Поиск по названию объявления
           search_by_state: По статусу
       bulletins:

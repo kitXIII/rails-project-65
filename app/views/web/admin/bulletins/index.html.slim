@@ -3,12 +3,12 @@ h1.fs-5.mb-3
 
 = search_form_for @q, url: admin_bulletins_path do |f|
   .row
-    .col-12.col-md-4
+    .col-12.col-md-5.col-lg-6
       = f.input :title_or_author_name_or_author_email_cont,
         as: :string,
         label: false,
         hint: t('.search_by_title_or_author_name')
-    .col-12.col-md-4
+    .col-12.col-md-3.col-lg-2
       = f.input :state_eq,
         as: :select,
         collection: Bulletin.aasm.states,
@@ -18,7 +18,7 @@ h1.fs-5.mb-3
         label: false
     .col-12.col-md-4.d-flex.align-items-start.gap-2.gap-md-4.mb-3
       = f.button :submit, class: 'btn btn-primary flex-grow-1'
-      = link_to t('.reset'), admin_bulletins_path, class: 'btn btn-outline-primary flex-grow-1'
+      = link_to t('reset'), admin_bulletins_path, class: 'btn btn-outline-primary flex-grow-1'
 
 .overflow-x-scroll
   table.table.table-striped.table-hover

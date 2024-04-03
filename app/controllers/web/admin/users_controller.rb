@@ -2,8 +2,10 @@
 
 class Web::Admin::UsersController < Web::Admin::ApplicationController
   def index
-    @users = User.where(admin: false).order(name: :asc)
-    @admins = User.where(admin: true).order(name: :asc)
+    @q = User.ransack(params[:q])
+    @q.sorts = 'name asc' if @q.sorts.empty?
+
+    @users = @q.result
   end
 
   def show

@@ -2,12 +2,10 @@ ru:
   web:
     admin:
       users:
-        users:
-          name: Имя
-          email: email
         index:
-          admins: Администраторы
+          admin: Администраторы
           users: Пользователи
+          search_by_name_or_email: Поиск по имени или email
         show:
           title: Пользователь
         edit:
