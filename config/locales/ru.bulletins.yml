@@ -27,6 +27,9 @@ ru:
 
     bulletins:
       index:
+        reset: Сбросить
+        search_by_title: Поиск по названию объявления
+        select_category: Укажите категорию
         title: Объявления
       new:
         title: Добавить объявление

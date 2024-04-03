@@ -4,7 +4,11 @@ class Web::BulletinsController < Web::ApplicationController
   before_action :authenticate_user!, except: %i[index show]
 
   def index
-    @bulletins = Bulletin.published.order(updated_at: :desc)
+    @q = Bulletin.published.ransack(params[:q])
+    @q.sorts = 'updated_at desc'
+
+    @bulletins = @q.result
+    @categories = Category.order(name: :asc)
   end
 
   def show

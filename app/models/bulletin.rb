@@ -37,4 +37,16 @@ class Bulletin < ApplicationRecord
   end
 
   scope :published_or_created_by, ->(author) { published.or(Bulletin.where(user_id: author.id)) }
+
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[title description category_id]
+  end
+
+  def self.ransackable_associations(_auth_object = nil)
+    %w[author category]
+  end
+
+  def self.ransortable_attributes(_auth_object = nil)
+    %w[created_at updated_at title author category state]
+  end
 end
