@@ -2,7 +2,10 @@
 
 class Web::Admin::CategoriesController < Web::Admin::ApplicationController
   def index
-    @categories = Category.order(name: :asc)
+    @q = Category.ransack(params[:q])
+    @q.sorts = 'name asc' if @q.sorts.empty?
+
+    @categories = @q.result
   end
 
   def new

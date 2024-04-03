@@ -3,9 +3,10 @@ ru:
     admin:
       categories:
         index:
-          title: Категории
           add: Добавить категорию
           destroy_confirmation: Вы действительно хотите удалить категорию?
+          search_by_name: Поиск по наименованию
+          title: Категории
         new:
           title: Добавить категорию
         create:

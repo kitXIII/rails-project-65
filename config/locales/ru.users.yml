@@ -3,7 +3,7 @@ ru:
     admin:
       users:
         index:
-          admin: Администраторы
+          admin: Администратор
           users: Пользователи
           search_by_name_or_email: Поиск по имени или email
         show:

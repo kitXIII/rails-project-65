@@ -1,12 +1,21 @@
 .mb-3
   = link_to t('.add'), new_admin_category_path
 
+= search_form_for @q, url: admin_categories_path do |f|
+  .row
+    .col-12.col-md-8
+      = f.input :name_cont, label: false, hint: t('.search_by_name')
+    .col-12.col-md-4.d-flex.align-items-start.gap-2.gap-md-4.mb-3
+      = f.button :submit, class: 'btn btn-primary flex-grow-1'
+      = link_to t('reset'), admin_categories_path, class: 'btn btn-outline-primary flex-grow-1'
+
 .overflow-x-scroll
   table.table.table-striped.table-hover
     thead
       tr
         th{ scope = 'col' } #
-        th{ scope = 'col' } = t('.name')
+        th{ scope = 'col' } = sort_link @q, :name, Category.human_attribute_name(:name),
+                                        class: 'link-dark text-decoration-none'
         th
 
     tbody
