@@ -39,7 +39,7 @@ class Bulletin < ApplicationRecord
   scope :published_or_created_by, ->(author) { published.or(Bulletin.where(user_id: author.id)) }
 
   def self.ransackable_attributes(_auth_object = nil)
-    %w[title description state category_id]
+    %w[title description state]
   end
 
   def self.ransackable_associations(_auth_object = nil)

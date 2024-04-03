@@ -2,6 +2,9 @@
 
 class Web::Admin::HomeController < Web::Admin::ApplicationController
   def index
-    @bulletins = Bulletin.under_moderation.order(created_at: :desc)
+    @q = Bulletin.under_moderation.ransack(params[:q])
+    @q.sorts = 'created_at desc'
+
+    @bulletins = @q.result.includes(:author)
   end
 end

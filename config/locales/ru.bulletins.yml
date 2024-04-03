@@ -23,8 +23,9 @@ ru:
           publish_confirmation: Объявление будет опубликовано. Продолжить?
           reject: Вернуть
           reject_confirmation: Объявление будет возвращено. Продолжить?
+          reset: Сбросить
+          search_by_title_or_author_name: Поиск по названию объявления или автору
           title: Объявления на модерации
-
     bulletins:
       index:
         reset: Сбросить

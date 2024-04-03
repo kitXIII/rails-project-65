@@ -8,4 +8,8 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
 
   validates :name, presence: true
+
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[name email]
+  end
 end
