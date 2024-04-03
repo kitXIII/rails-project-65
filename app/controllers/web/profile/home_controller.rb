@@ -2,6 +2,9 @@
 
 class Web::Profile::HomeController < Web::Profile::ApplicationController
   def index
-    @bulletins = current_user.bulletins.order(updated_at: :desc)
+    @q = current_user.bulletins.ransack(params[:q])
+    @q.sorts = 'updated_at desc'
+
+    @bulletins = @q.result
   end
 end
