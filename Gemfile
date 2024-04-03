@@ -12,10 +12,12 @@ gem 'active_storage_validations'
 gem 'aws-sdk-s3'
 gem 'faker'
 gem 'image_processing'
+gem 'kaminari'
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
 gem 'pundit'
 gem 'rails-i18n'
+gem 'ransack'
 gem 'rubocop', require: false
 gem 'rubocop-minitest'
 gem 'rubocop-rails', require: false
