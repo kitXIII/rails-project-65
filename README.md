@@ -7,6 +7,15 @@ Bulletin board site built with Ruby on Rails.
 
 The [demo](https://kit-bulletins-board.onrender.com) is published on [render](https://render.com/) service
 
+### Implementation Features
+
+* OAuth Github authentication
+* Authorization settings with [pundit](https://github.com/varvet/pundit)
+* State management with [aasm](https://github.com/aasm/aasm)
+* Adaptive UI with [bootstrap](https://getbootstrap.com)
+* Search, filtering and sorting with [ransack](https://github.com/activerecord-hackery/ransack)
+* Pagination with [kaminari](https://github.com/amatsuda/kaminari)
+
 ### Development
 
 #### Requirements
@@ -15,7 +24,7 @@ The [demo](https://kit-bulletins-board.onrender.com) is published on [render](ht
 
 #### Github OAuth
 
-First, you have to register you own app on [GitHubApps](https://github.com/settings/apps) and obtain GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET to provide authorization.
+First, you have to register you own app on [GitHubApps](https://github.com/settings/apps) and obtain `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET` to provide authorization.
 
 1) When setting up your application on [GitHubApps](https://github.com/settings/apps) you will need the **callback url** values:
 
@@ -68,7 +77,7 @@ To populate the database with demo data (`users`, `categories`, `bulletins`), yo
 bin/rails demo:create categories=5 users=10 bulletins=20
 ```
 
-If you need to populate the database with only one type of object, you can use one of the following commands:
+If you need to populate the database with only one type of entity, you can use one of the following commands:
 
 ```shell
 bin/rails demo:create categories=3
