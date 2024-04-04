@@ -2,11 +2,11 @@
 
 class AdminHelper
   def self.supervisor
-    @supervisor ||= User.find_by(email: ENV.fetch('SUPERVISOR_EMAIL'))
+    @supervisor ||= User.find_by(email: ENV.fetch('SUPERVISOR_EMAIL', 'no email'))
   end
 
   def self.create_supervisor
-    email = ENV.fetch('SUPERVISOR_EMAIL')
+    email = ENV.fetch('SUPERVISOR_EMAIL', nil)
     return if email.blank?
 
     @supervisor = User.create_with(name: 'admin', admin: true).find_or_create_by(email:)
