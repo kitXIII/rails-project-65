@@ -17,7 +17,7 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
                      { alert: t('.failed') }
                    end
 
-    redirect_back fallback_location: admin_root_path, **notification
+    redirect_back fallback_location: admin_bulletins_path, **notification
   end
 
   def reject
@@ -29,7 +29,7 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
                      { alert: t('.failed') }
                    end
 
-    redirect_back fallback_location: admin_root_path, **notification
+    redirect_back fallback_location: admin_bulletins_path, **notification
   end
 
   def archive
@@ -41,6 +41,6 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
                      { alert: t('.failed') }
                    end
 
-    redirect_back fallback_location: admin_root_path, **notification
+    redirect_back fallback_location: admin_bulletins_path, **notification
   end
 end
