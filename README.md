@@ -15,6 +15,7 @@ The [demo](https://kit-bulletins-board.onrender.com) is published on [render](ht
 * Adaptive UI with [bootstrap](https://getbootstrap.com)
 * Search, filtering and sorting with [ransack](https://github.com/activerecord-hackery/ransack)
 * Pagination with [kaminari](https://github.com/amatsuda/kaminari)
+* Hosting files on an external service
 
 ### Development
 
