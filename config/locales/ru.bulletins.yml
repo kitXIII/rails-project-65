@@ -5,7 +5,7 @@ ru:
         index:
           archive: В архив
           archive_confirmation: Объявление будет перемещено в архив. Продолжить?
-          search_by_title_or_author_name: Поиск по названию объявления или автору
+          search_by_title_or_user_name: Поиск по названию объявления или автору
           search_by_state: По статусу
           title: Все объявления
         archive:
@@ -25,7 +25,7 @@ ru:
           publish_confirmation: Объявление будет опубликовано. Продолжить?
           reject: Вернуть
           reject_confirmation: Объявление будет возвращено. Продолжить?
-          search_by_title_or_author_name: Поиск по названию объявления или автору
+          search_by_title_or_user_name: Поиск по названию объявления или автору
           search_by_category: По категории
           title: Объявления на модерации
     bulletins:

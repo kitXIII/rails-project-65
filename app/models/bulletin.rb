@@ -6,7 +6,7 @@ class Bulletin < ApplicationRecord
   has_one_attached :image
 
   belongs_to :category
-  belongs_to :author, class_name: 'User', foreign_key: 'user_id', inverse_of: 'bulletins'
+  belongs_to :user, inverse_of: 'bulletins'
 
   validates :image, attached: true,
                     content_type: %i[png jpg jpeg],
@@ -36,17 +36,17 @@ class Bulletin < ApplicationRecord
     end
   end
 
-  scope :published_or_created_by, ->(author) { published.or(Bulletin.where(user_id: author.id)) }
+  scope :published_or_created_by, ->(user) { published.or(Bulletin.where(user_id: user.id)) }
 
   def self.ransackable_attributes(_auth_object = nil)
     %w[title description state]
   end
 
   def self.ransackable_associations(_auth_object = nil)
-    %w[author category]
+    %w[user category]
   end
 
   def self.ransortable_attributes(_auth_object = nil)
-    %w[created_at updated_at title author category state]
+    %w[created_at updated_at title user category state]
   end
 end

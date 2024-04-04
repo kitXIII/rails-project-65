@@ -27,7 +27,7 @@ class DemoHelper
           title: Faker::Commerce.product_name,
           description: Faker::Books::Dune.quote,
           category: categories.sample,
-          author: users.sample,
+          user: users.sample,
           state: states.sample
         )
         file_number = rand(10)

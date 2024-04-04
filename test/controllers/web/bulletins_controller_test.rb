@@ -85,7 +85,7 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest # rubocop:d
     bulletin = Bulletin.find_by(@attrs.except(:image))
 
     assert { bulletin }
-    assert { bulletin.author == @user }
+    assert { bulletin.user == @user }
     assert_redirected_to bulletin_url(bulletin)
   end
 

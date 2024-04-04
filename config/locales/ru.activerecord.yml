@@ -2,7 +2,7 @@ ru:
   activerecord:
     attributes:
       bulletin:
-        author: Автор
+        user: Автор
         category: Категория
         created_at: Добавлено
         updated_at: Обновлено

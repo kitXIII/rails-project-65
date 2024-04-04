@@ -5,7 +5,7 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
     @q = Bulletin.ransack(params[:q])
     @q.sorts = 'created_at desc' if @q.sorts.empty?
 
-    @bulletins = @q.result.includes(:author).page(page)
+    @bulletins = @q.result.includes(:user).page(page)
   end
 
   def publish

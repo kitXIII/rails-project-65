@@ -4,10 +4,10 @@ h1.fs-5.mb-3
 = search_form_for @q, url: admin_root_path do |f|
   .row
     .col-12.col-md-5.col-lg-6
-      = f.input :title_or_author_name_or_author_email_cont,
+      = f.input :title_or_user_name_or_user_email_cont,
         as: :string,
         label: false,
-        hint: t('.search_by_title_or_author_name')
+        hint: t('.search_by_title_or_user_name')
     .col-12.col-md-3.col-lg-2
       = f.input :category_id_eq,
         hint: t('.search_by_category'),
@@ -26,7 +26,7 @@ h1.fs-5.mb-3
                                         class: 'link-dark text-decoration-none'
         th{ scope = 'col' } = sort_link @q, :category_name, Bulletin.human_attribute_name(:category),
                                         class: 'link-dark text-decoration-none'
-        th{ scope = 'col' } = sort_link @q, :author_name, Bulletin.human_attribute_name(:author),
+        th{ scope = 'col' } = sort_link @q, :user_name, Bulletin.human_attribute_name(:user),
                                         class: 'link-dark text-decoration-none'
         th{ scope = 'col' } = sort_link @q, :updated_at, Bulletin.human_attribute_name(:updated_at),
                                         class: 'link-dark text-decoration-none'
@@ -37,7 +37,7 @@ h1.fs-5.mb-3
         tr
           td = link_to bulletin.title, bulletin_path(bulletin)
           td = bulletin.category.name
-          td = link_to bulletin.author.name, admin_user_path(bulletin.author)
+          td = link_to bulletin.user.name, admin_user_path(bulletin.user)
           td = distance_of_time_in_words_to_now(bulletin.updated_at)
           td
             .d-flex.flex-nowrap.gap-2

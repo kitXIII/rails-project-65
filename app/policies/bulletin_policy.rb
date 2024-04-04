@@ -26,6 +26,12 @@ class BulletinPolicy < ApplicationPolicy
   end
 
   def update?
-    user && record.author == user && (record.draft? || record.under_moderation?)
+    author? && (record.draft? || record.under_moderation?)
+  end
+
+  private
+
+  def author?
+    user && record.user == user
   end
 end

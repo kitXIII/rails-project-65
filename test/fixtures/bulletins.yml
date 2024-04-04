@@ -4,45 +4,45 @@ one:
   title: BulletinTitleOne
   description: BulletinDescriptionOne
   category: one
-  author: one
+  user: one
 
 two:
   title: BulletinTitleTwo
   description: BulletinDescriptionTwo
   category: two
-  author: two
+  user: two
 
 draft:
   title: BulletinTitle
   description: DraftBulletinDescription
   category: one
-  author: one
+  user: one
   state: draft
 
 published:
   title: PublishedBulletinTitle
   description: PublishedBulletinDescription
   category: one
-  author: one
+  user: one
   state: published
 
 under_moderation:
   title: BulletinTitle
   description: UnderModerationBulletinDescription
   category: one
-  author: one
+  user: one
   state: under_moderation
 
 rejected:
   title: BulletinTitle
   description: RejectedBulletinDescription
   category: one
-  author: one
+  user: one
   state: rejected
 
 archived:
   title: BulletinDescription
   description: ArchivedBulletinDescription
   category: one
-  author: one
+  user: one
   state: archived
