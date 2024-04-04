@@ -4,7 +4,7 @@ DEFAULT_NUMBER_OF_CATEGORIES = 5
 DEFAULT_NUMBER_OF_USERS = 10
 DEFAULT_NUMBER_OF_BULLETINS = 10
 
-namespace :demo do # rubocop:disable Metrics/BlockLength
+namespace :demo do
   desc 'Fills app with demo data: categories, users and bulletins'
   task :create, %i[users categories bulletins] => :environment do
     users = ENV.fetch('users', nil)

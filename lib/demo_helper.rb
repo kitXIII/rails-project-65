@@ -21,7 +21,7 @@ class DemoHelper
       end
     end
 
-    def create_bulletins(number_of_bulletins = 1) # rubocop:disable Metrics/AbcSize,Metrics/MethodLength
+    def create_bulletins(number_of_bulletins = 1)
       number_of_bulletins.times do
         bulletin = Bulletin.new(
           title: Faker::Commerce.product_name,

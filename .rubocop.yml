@@ -10,7 +10,6 @@ AllCops:
     - 'bin/**/*'
     - 'db/schema.rb'
     - 'db/migrate/**/*'
-    - 'config/environments/**/*'
 
 Style/Documentation:
   Enabled: false
@@ -21,10 +20,16 @@ Style/HashEachMethods:
 Style/ClassAndModuleChildren:
   Enabled: false
 
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
 Layout/LineLength:
   Exclude:
     - 'config/**/*'
 
-Metrics/BlockLength:
-  Exclude:
-    - 'config/**/*'
