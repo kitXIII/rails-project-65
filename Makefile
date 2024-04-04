@@ -10,6 +10,9 @@ copy-env:
 	cp -n .env.example .env
 	$(info !!! Please fill the .env variables !!!)
 
+create-admin:
+	bin/rails supervisor:create
+
 start:
 	bin/dev
 

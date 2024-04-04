@@ -23,7 +23,9 @@ class Web::AuthController < Web::ApplicationController
     email = user_info[:info][:email].downcase
     name = user_info[:info][:name]
 
-    User.create_with(name:).find_or_create_by(email:)
+    user = User.create_with(name:).find_or_create_by(email:)
+    user.update(name:) if user.persisted? && user.name != name
+    user
   end
 
   def build_user_notification(user)
