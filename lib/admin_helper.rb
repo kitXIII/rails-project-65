@@ -4,7 +4,7 @@ class AdminHelper
   DEFAULT_ADMIN_NAME = 'admin'
 
   def self.supervisor
-    @supervisor ||= supervisor_email? && User.find_by(email: supervisor_email)
+    @supervisor ||= supervisor_email? ? User.find_by(email: supervisor_email) : nil
   end
 
   def self.create_supervisor
