@@ -4,8 +4,7 @@ class Web::Admin::CategoriesController < Web::Admin::ApplicationController
   before_action :set_category, only: %i[edit update destroy]
 
   def index
-    @q = Category.ransack(params[:q])
-    @q.sorts = 'name asc' if @q.sorts.empty?
+    @q = Category.order(name: :asc).ransack(params[:q])
 
     @categories = @q.result
   end

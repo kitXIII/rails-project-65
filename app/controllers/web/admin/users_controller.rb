@@ -5,8 +5,7 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
   before_action :authorize_user, only: %i[edit update]
 
   def index
-    @q = User.ransack(params[:q])
-    @q.sorts = 'name asc' if @q.sorts.empty?
+    @q = User.order(name: :asc).ransack(params[:q])
 
     @users = @q.result.page(page)
   end

@@ -4,8 +4,7 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
   before_action :set_bulletin, only: %i[publish reject archive]
 
   def index
-    @q = Bulletin.ransack(params[:q])
-    @q.sorts = 'created_at desc' if @q.sorts.empty?
+    @q = Bulletin.order(created_at: :desc).ransack(params[:q])
 
     @bulletins = @q.result.includes(:user).page(page)
   end
