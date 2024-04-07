@@ -5,12 +5,7 @@ one:
   description: BulletinDescriptionOne
   category: one
   user: one
-
-two:
-  title: BulletinTitleTwo
-  description: BulletinDescriptionTwo
-  category: two
-  user: two
+  state: draft
 
 draft:
   title: BulletinTitle

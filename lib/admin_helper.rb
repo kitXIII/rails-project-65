@@ -1,15 +1,27 @@
 # frozen_string_literal: true
 
 class AdminHelper
+  DEFAULT_ADMIN_NAME = 'admin'
+
   def self.supervisor
-    @supervisor ||= User.find_by(email: ENV.fetch('SUPERVISOR_EMAIL', 'no email'))
+    @supervisor ||= supervisor_email? && User.find_by(email: supervisor_email)
   end
 
   def self.create_supervisor
-    email = ENV.fetch('SUPERVISOR_EMAIL', nil)
-    return if email.blank?
-
-    @supervisor = User.create_with(name: 'admin', admin: true).find_or_create_by(email:)
-    @supervisor.update(admin: true) unless @supervisor.admin?
+    if supervisor.present?
+      supervisor.update(admin: true) unless supervisor.admin?
+    else
+      User.create(name: DEFAULT_ADMIN_NAME, email: supervisor_email, admin: true)
+    end
   end
+
+  def self.supervisor_email
+    @supervisor_email ||= ENV.fetch('SUPERVISOR_EMAIL', nil)
+  end
+
+  def self.supervisor_email?
+    supervisor_email.present?
+  end
+
+  private_class_method :supervisor_email?, :supervisor_email
 end
