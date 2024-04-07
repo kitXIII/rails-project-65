@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Web::Admin::BulletinsController < Web::Admin::ApplicationController
+  before_action :set_bulletin, only: %i[publish reject archive]
+
   def index
     @q = Bulletin.ransack(params[:q])
     @q.sorts = 'created_at desc' if @q.sorts.empty?
@@ -9,38 +11,35 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
   end
 
   def publish
-    @bulletin = Bulletin.find params[:id]
-
-    notification = if @bulletin.publish!
-                     { notice: t('.success') }
-                   else
-                     { alert: t('.failed') }
-                   end
-
-    redirect_back fallback_location: admin_bulletins_path, **notification
+    if @bulletin.may_publish?
+      @bulletin.publish!
+      redirect_back fallback_location: admin_bulletins_path, notice: t('.success')
+    else
+      redirect_back fallback_location: admin_bulletins_path, notice: t('.error')
+    end
   end
 
   def reject
-    @bulletin = Bulletin.find params[:id]
-
-    notification = if @bulletin.reject!
-                     { notice: t('.success') }
-                   else
-                     { alert: t('.failed') }
-                   end
-
-    redirect_back fallback_location: admin_bulletins_path, **notification
+    if @bulletin.may_reject?
+      @bulletin.reject!
+      redirect_back fallback_location: admin_bulletins_path, notice: t('.success')
+    else
+      redirect_back fallback_location: admin_bulletins_path, notice: t('.error')
+    end
   end
 
   def archive
+    if @bulletin.may_archive?
+      @bulletin.archive!
+      redirect_back fallback_location: admin_bulletins_path, notice: t('.success')
+    else
+      redirect_back fallback_location: admin_bulletins_path, notice: t('.error')
+    end
+  end
+
+  private
+
+  def set_bulletin
     @bulletin = Bulletin.find params[:id]
-
-    notification = if @bulletin.archive!
-                     { notice: t('.success') }
-                   else
-                     { alert: t('.failed') }
-                   end
-
-    redirect_back fallback_location: admin_bulletins_path, **notification
   end
 end

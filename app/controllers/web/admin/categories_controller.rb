@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Web::Admin::CategoriesController < Web::Admin::ApplicationController
+  before_action :set_category, only: %i[edit update destroy]
+
   def index
     @q = Category.ransack(params[:q])
     @q.sorts = 'name asc' if @q.sorts.empty?
@@ -12,9 +14,7 @@ class Web::Admin::CategoriesController < Web::Admin::ApplicationController
     @category = Category.new
   end
 
-  def edit
-    @category = Category.find params[:id]
-  end
+  def edit; end
 
   def create
     @category = Category.create(category_params)
@@ -27,8 +27,6 @@ class Web::Admin::CategoriesController < Web::Admin::ApplicationController
   end
 
   def update
-    @category = Category.find params[:id]
-
     if @category.update(category_params)
       redirect_to admin_categories_path, notice: t('.success')
     else
@@ -37,21 +35,20 @@ class Web::Admin::CategoriesController < Web::Admin::ApplicationController
   end
 
   def destroy
-    @category = Category.find params[:id]
-
-    notification =
-      if @category.destroy
-        {}
-      else
-        { alert: @category.errors.full_messages.to_sentence }
-      end
-
-    redirect_to admin_categories_path, notification
+    if @category.destroy
+      redirect_to admin_categories_path
+    else
+      redirect_to admin_categories_path, { alert: @category.errors.full_messages.to_sentence }
+    end
   end
 
   private
 
   def category_params
     params.require(:category).permit(:name)
+  end
+
+  def set_category
+    @category = Category.find params[:id]
   end
 end
