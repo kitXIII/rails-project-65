@@ -40,19 +40,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_01_083130) do
   end
 
   create_table "bulletins", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
+    t.string "title", null: false
+    t.text "description", null: false
     t.integer "category_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "state"
+    t.string "state", null: false
     t.index ["category_id"], name: "index_bulletins_on_category_id"
     t.index ["user_id"], name: "index_bulletins_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_categories_on_name", unique: true
