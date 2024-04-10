@@ -7,17 +7,15 @@ Rails.application.routes.draw do
     delete 'auth/logout', to: 'auth#logout'
 
     root 'bulletins#index'
-    resources :bulletins, except: %i[destroy]
+    resources :bulletins, except: %i[destroy] do
+      member do
+        patch :to_moderate
+        patch :archive
+      end
+    end
 
     scope module: :profile do
       get 'profile', to: 'home#index'
-
-      resources :bulletins, only: [] do
-        member do
-          patch :to_moderate
-          patch :archive
-        end
-      end
     end
 
     namespace :admin do
