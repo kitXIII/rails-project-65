@@ -24,6 +24,8 @@ class Web::BulletinsController < Web::ApplicationController
   def edit
     @bulletin = current_user.bulletins.find params[:id]
     authorize @bulletin
+
+    redirect_to profile_path, notice: t('.cant_edit') unless @bulletin.may_be_edited?
   end
 
   def create
@@ -40,6 +42,7 @@ class Web::BulletinsController < Web::ApplicationController
   def update
     @bulletin = current_user.bulletins.find params[:id]
     authorize @bulletin
+    redirect_to profile_path, notice: t('.cant_edit') unless @bulletin.may_be_edited?
 
     if @bulletin.update(bulletin_params)
       redirect_to @bulletin, notice: t('.success')

@@ -48,7 +48,7 @@
             td = distance_of_time_in_words_to_now(bulletin.updated_at)
             td
               .d-flex.flex-nowrap.gap-2
-                - if policy(bulletin).edit?
+                - if bulletin.may_be_edited?
                   = link_to t('edit'), edit_bulletin_path(bulletin)
                 - if bulletin.may_to_moderate?
                   = link_to t('.to_moderate'), to_moderate_bulletin_path(bulletin), data: { turbo_method: :patch },

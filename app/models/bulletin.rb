@@ -38,6 +38,10 @@ class Bulletin < ApplicationRecord
 
   scope :published_or_created_by, ->(user) { published.or(Bulletin.where(user_id: user.id)) }
 
+  def may_be_edited?
+    draft? || under_moderation?
+  end
+
   def self.ransackable_attributes(_auth_object = nil)
     %w[title description state]
   end

@@ -3,7 +3,7 @@
 class BulletinPolicy < ApplicationPolicy
   class Scope < ApplicationPolicy::Scope
     def resolve
-      if !user
+      if user.blank?
         scope.published
       elsif user.admin?
         scope.all
@@ -26,7 +26,7 @@ class BulletinPolicy < ApplicationPolicy
   end
 
   def update?
-    author? && (record.draft? || record.under_moderation?)
+    author?
   end
 
   private

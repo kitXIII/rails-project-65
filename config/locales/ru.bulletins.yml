@@ -29,6 +29,7 @@ ru:
           search_by_category: По категории
           title: Объявления на модерации
     bulletins:
+      cant_edit: В этом статусе объявление не может быть отредактировано
       index:
         search_by_title: Поиск по названию объявления
         select_category: Укажите категорию
