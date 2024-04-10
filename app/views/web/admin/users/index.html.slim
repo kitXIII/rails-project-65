@@ -30,7 +30,7 @@ h1.fs-5.mb-3
         tr
           th{ scope = 'row' } = i + 1
           td
-            = user.name
+            = user.name_or_email
             - if user.admin?
               .badge.text-bg-success.ms-2 = t('.admin')
           td = mail_to user.email

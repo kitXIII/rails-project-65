@@ -7,7 +7,9 @@ class User < ApplicationRecord
                     presence: true,
                     uniqueness: { case_sensitive: false }
 
-  validates :name, presence: true
+  def name_or_email
+    name || email
+  end
 
   def self.ransackable_attributes(_auth_object = nil)
     %w[name email admin]

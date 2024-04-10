@@ -12,6 +12,6 @@
           = simple_format(@bulletin.description)
     .col-12.col-lg-4.d-flex.flex-column.align-items-end
       span.fs-4
-        = @bulletin.user.name
+        = @bulletin.user.name_or_email
       span.text-muted
         = distance_of_time_in_words_to_now(@bulletin.created_at)

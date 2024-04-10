@@ -37,7 +37,7 @@ h1.fs-5.mb-3
         tr
           td = link_to bulletin.title, bulletin_path(bulletin)
           td = bulletin.category.name
-          td = link_to bulletin.user.name, admin_user_path(bulletin.user)
+          td = link_to bulletin.user.name_or_email, admin_user_path(bulletin.user)
           td = distance_of_time_in_words_to_now(bulletin.updated_at)
           td
             .d-flex.flex-nowrap.gap-2
