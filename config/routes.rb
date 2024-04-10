@@ -23,7 +23,6 @@ Rails.application.routes.draw do
     namespace :admin do
       root 'home#index'
       resources :categories, except: %i[show]
-      resources :users, only: %i[index show edit update]
       resources :bulletins, only: %i[index] do
         member do
           patch :publish
