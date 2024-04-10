@@ -5,7 +5,13 @@ class Web::AuthController < Web::ApplicationController
     user = find_or_create_user_by(auth)
 
     sign_in(user) if user.persisted?
-    redirect_to root_path, build_user_notification(user)
+    notification = if user.persisted?
+                     { notice: t('successful_login') }
+                   else
+                     { alert: user.errors.full_messages.to_sentence }
+                   end
+
+    redirect_to root_path, notification
   end
 
   def logout
@@ -23,16 +29,8 @@ class Web::AuthController < Web::ApplicationController
     email = user_info[:info][:email].downcase
     name = user_info[:info][:name]
 
-    user = User.create_with(name:).find_or_create_by(email:)
+    user = User.find_or_create_by(email:)
     user.update(name:) if user.persisted? && user.name != name
     user
-  end
-
-  def build_user_notification(user)
-    if user.persisted?
-      { notice: t('successful_login') }
-    else
-      { alert: user.errors.full_messages.to_sentence }
-    end
   end
 end
