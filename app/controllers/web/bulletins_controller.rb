@@ -2,6 +2,7 @@
 
 class Web::BulletinsController < Web::ApplicationController
   before_action :authenticate_user!, only: %i[new edit create update to_moderate archive]
+  before_action :set_current_user_bulletin_with_authorization, only: %i[edit update to_moderate archive]
 
   def index
     @q = Bulletin.published
@@ -22,9 +23,6 @@ class Web::BulletinsController < Web::ApplicationController
   end
 
   def edit
-    @bulletin = current_user.bulletins.find params[:id]
-    authorize @bulletin
-
     redirect_to profile_path, notice: t('.cant_edit') unless @bulletin.may_be_edited?
   end
 
@@ -40,9 +38,6 @@ class Web::BulletinsController < Web::ApplicationController
   end
 
   def update
-    @bulletin = current_user.bulletins.find params[:id]
-    authorize @bulletin
-
     unless @bulletin.may_be_edited?
       redirect_to profile_path, notice: t('.cant_edit')
       return
@@ -56,9 +51,6 @@ class Web::BulletinsController < Web::ApplicationController
   end
 
   def to_moderate
-    @bulletin = current_user.bulletins.find params[:id]
-    authorize @bulletin
-
     if @bulletin.may_to_moderate?
       @bulletin.to_moderate!
       redirect_back fallback_location: profile_path, notice: t('.success')
@@ -68,9 +60,6 @@ class Web::BulletinsController < Web::ApplicationController
   end
 
   def archive
-    @bulletin = current_user.bulletins.find params[:id]
-    authorize @bulletin
-
     if @bulletin.may_archive?
       @bulletin.archive!
       redirect_back fallback_location: profile_path, notice: t('.success')
@@ -85,7 +74,7 @@ class Web::BulletinsController < Web::ApplicationController
     params.require(:bulletin).permit(:title, :description, :category_id, :image)
   end
 
-  # def set_current_user_bulletin
-  #   @bulletin = current_user.bulletins.find params[:id]
-  # end
+  def set_current_user_bulletin_with_authorization
+    @bulletin = authorize current_user.bulletins.find params[:id]
+  end
 end
