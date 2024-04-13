@@ -35,6 +35,8 @@ class DemoHelper
                               filename: "#{file_number}.png",
                               content_type: 'image/png')
         bulletin.save
+
+        sleep 0.2 # To prevent SQLite3::BusyException
       end
     end
 

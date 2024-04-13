@@ -47,8 +47,12 @@ More information about Github OAuth [here](https://docs.github.com/apps/building
 
 1) Install dependencies and prepare local database, with running:
     ```shell
-    make install
+    make setup
     ```
+
+    When command `make setup` is executed, the database is populated with demo data.
+    If for some reason you need to install the system without populated the database with demo data, use command `make setup-clean`.
+
 
 2) Fill env variables in the .env file.
 

@@ -10,8 +10,10 @@ class AdminHelper
   def self.create_supervisor
     if supervisor.present?
       supervisor.update(admin: true) unless supervisor.admin?
-    else
+    elsif supervisor_email?
       User.create(name: DEFAULT_ADMIN_NAME, email: supervisor_email, admin: true)
+    else
+      Rails.logger.error "Can't create default admim user. Please fill .env file first"
     end
   end
 

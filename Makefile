@@ -1,10 +1,15 @@
-setup: install db-prepare copy-env
+setup: install db-prepare create-admin db-seed-demo-data copy-env
+
+setup-clean: install db-prepare
 
 install:
 	bin/setup
 
 db-prepare:
 	bin/rails db:reset
+
+db-seed-demo-data:
+	bin/rails demo:create categories=5 users=5 bulletins=30
 
 copy-env:
 	cp -n .env.example .env
