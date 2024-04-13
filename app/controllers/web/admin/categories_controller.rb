@@ -34,7 +34,7 @@ class Web::Admin::CategoriesController < Web::Admin::ApplicationController
   end
 
   def destroy
-    if @category.bulletins.count.positive?
+    if @category.bulletins.exists?
       redirect_to admin_categories_path, alert: t('.cant_delete_category')
     elsif @category.destroy
       redirect_to admin_categories_path, notice: t('.success')
