@@ -13,7 +13,7 @@ jobs:
           ruby-version: '3.2.2'
 
       - name: Setup project
-        run: make setup-clean
+        run: make setup
 
       - name: Run Linter
         run: make lint

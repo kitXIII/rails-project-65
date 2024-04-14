@@ -7,14 +7,18 @@ class AdminHelper
     @supervisor ||= supervisor_email? ? User.find_by(email: supervisor_email) : nil
   end
 
-  def self.create_supervisor
+  def self.try_register_or_create_supervisor
     if supervisor.present?
       supervisor.update(admin: true) unless supervisor.admin?
-    elsif supervisor_email?
-      User.create(name: DEFAULT_ADMIN_NAME, email: supervisor_email, admin: true)
     else
-      Rails.logger.error "Can't create default admim user. Please fill .env file first"
+      try_create_supervisor
     end
+  end
+
+  def self.try_create_supervisor
+    return unless supervisor_email?
+
+    User.create(name: DEFAULT_ADMIN_NAME, email: supervisor_email, admin: true)
   end
 
   def self.supervisor_email

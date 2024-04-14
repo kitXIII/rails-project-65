@@ -50,10 +50,6 @@ More information about Github OAuth [here](https://docs.github.com/apps/building
     make setup
     ```
 
-    When command `make setup` is executed, the database is populated with demo data.
-    If for some reason you need to install the system without populated the database with demo data, use command `make setup-clean`.
-
-
 2) Fill env variables in the .env file.
 
     Variables required for the application to work:
@@ -76,6 +72,9 @@ More information about Github OAuth [here](https://docs.github.com/apps/building
 
 
 #### Populating the database with demo data
+
+When command `make setup` is executed in development environment, the database is populated with demo data.
+If you need to add more sample data to the database, you can use the commands below.
 
 To populate the database with demo data (`users`, `categories`, `bulletins`), you can use the demo:create rake task:
 ```shell
